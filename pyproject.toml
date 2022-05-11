@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "ance"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+transformers = "2.3.0"
+pytrec-eval = "^0.5"
+faiss-cpu = "^1.7.2"
+wget = "^3.2"
+torch = "^1.11.0"
+pandas = "^1.4.2"
+sklearn = "^0.0"
+tokenizers = "^0.12.1"
+
+[tool.poetry.dev-dependencies]
+ipython = "^8.3.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
