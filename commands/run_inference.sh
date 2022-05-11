@@ -1,12 +1,12 @@
 # # Passage ANCE(FirstP) 
-gpu_no=4
-seq_length=512
-model_type=rdot_nll
-tokenizer_type="roberta-base"
-base_data_dir="../data/raw_data/"
-preprocessed_data_dir="${base_data_dir}ann_data_${tokenizer_type}_${seq_length}_dev/"
-job_name="OSPass512"
-pretrained_checkpoint_dir=""
+#gpu_no=4
+#seq_length=512
+#model_type=rdot_nll
+#tokenizer_type="roberta-base"
+#base_data_dir="../data/raw_data/"
+#preprocessed_data_dir="${base_data_dir}ann_data_${tokenizer_type}_${seq_length}_dev/"
+#job_name="OSPass512"
+#pretrained_checkpoint_dir=""
 
 # # Document ANCE(FirstP) 
 # gpu_no=4
@@ -19,14 +19,14 @@ pretrained_checkpoint_dir=""
 # pretrained_checkpoint_dir=""
 
 # # Document ANCE(MaxP)
-# gpu_no=4
-# seq_length=2048
-# model_type=rdot_nll_multi_chunk
-# tokenizer_type="roberta-base"
-# base_data_dir="../data/raw_data/"
-# preprocessed_data_dir="${base_data_dir}ann_data_${tokenizer_type}_${seq_length}/"
-# job_name="OSDoc2048"
-# pretrained_checkpoint_dir=""
+ gpu_no=1
+ seq_length=2048
+ model_type=rdot_nll_multi_chunk
+ tokenizer_type="roberta-base"
+ base_data_dir="../data/raw_data/"
+ preprocessed_data_dir="${base_data_dir}ann_data_${tokenizer_type}_${seq_length}/"
+ job_name="OSDoc2048"
+ pretrained_checkpoint_dir="../model/checkpoint/document_ance_maxp"
 
 ##################################### Inference ################################
 model_dir="${base_data_dir}${job_name}/"

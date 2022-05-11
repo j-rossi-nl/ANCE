@@ -25,4 +25,4 @@ gunzip msmarco-docdev-top100.gz
 wget https://msmarco.blob.core.windows.net/msmarcoranking/msmarco-docdev-queries.tsv.gz
 gunzip msmarco-docdev-queries.tsv.gz
 
-
+wget https://trec.nist.gov/data/deep/2019qrels-docs.txt --no-check-certificate

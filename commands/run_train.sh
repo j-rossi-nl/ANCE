@@ -51,14 +51,14 @@
 # learning_rate=5e-6
 
 # # Document ANCE(MaxP) 
-gpu_no=8
+gpu_no=1
 seq_length=2048
 tokenizer_type="roberta-base"
 model_type=rdot_nll_multi_chunk
 base_data_dir="../data/raw_data/"
 preprocessed_data_dir="${base_data_dir}ann_data_${tokenizer_type}_${seq_length}/"
 job_name="OSDoc2048"
-pretrained_checkpoint_dir="warmup or trained checkpoint path"
+pretrained_checkpoint_dir="../model/checkpoint/document_ance_maxp/"
 data_type=0
 warmup_steps=500
 per_gpu_train_batch_size=2
@@ -105,13 +105,13 @@ else
 fi
 
 ############################################# Training ########################################
-train_cmd="\
-python -m torch.distributed.launch --nproc_per_node=$gpu_no ../drivers/run_ann.py --model_type $model_type \
---model_name_or_path $pretrained_checkpoint_dir --task_name MSMarco --triplet --data_dir $preprocessed_data_dir \
---ann_dir $model_ann_data_dir --max_seq_length $seq_length --per_gpu_train_batch_size=$per_gpu_train_batch_size \
---gradient_accumulation_steps $gradient_accumulation_steps --learning_rate $learning_rate --output_dir $model_dir \
---warmup_steps $warmup_steps --logging_steps 100 --save_steps 10000 --optimizer lamb --single_warmup \
-"
-
-echo $train_cmd
-eval $train_cmd
+#train_cmd="\
+#python -m torch.distributed.launch --nproc_per_node=$gpu_no ../drivers/run_ann.py --model_type $model_type \
+#--model_name_or_path $pretrained_checkpoint_dir --task_name MSMarco --triplet --data_dir $preprocessed_data_dir \
+#--ann_dir $model_ann_data_dir --max_seq_length $seq_length --per_gpu_train_batch_size=$per_gpu_train_batch_size \
+#--gradient_accumulation_steps $gradient_accumulation_steps --learning_rate $learning_rate --output_dir $model_dir \
+#--warmup_steps $warmup_steps --logging_steps 100 --save_steps 10000 --optimizer lamb --single_warmup \
+#"
+#
+#echo $train_cmd
+#eval $train_cmd
