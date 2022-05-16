@@ -87,7 +87,7 @@ fi
 
 ##################################### Inital ANN Data generation ################################
 initial_data_gen_cmd="\
-python -m torch.distributed.launch --nproc_per_node=$gpu_no ../drivers/run_ann_data_gen.py --training_dir $model_dir \
+python ../drivers/run_ann_data_gen.py --training_dir $model_dir \
 --init_model_dir $pretrained_checkpoint_dir --model_type $model_type --output_dir $model_ann_data_dir \
 --cache_dir "${model_ann_data_dir}cache/" --data_dir $preprocessed_data_dir --max_seq_length $seq_length \
 --per_gpu_eval_batch_size 16 --topk_training 200 --negative_sample 20 --end_output_num 0 \

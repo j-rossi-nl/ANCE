@@ -173,9 +173,9 @@ def InferenceEmbeddingFromStreamDataLoader(
                 "input_ids": batch[0].long(),
                 "attention_mask": batch[1].long()}
             if is_query_inference:
-                embs = model.module.query_emb(**inputs)
+                embs = model.query_emb(**inputs)
             else:
-                embs = model.module.body_emb(**inputs)
+                embs = model.body_emb(**inputs)
 
         embs = embs.detach().cpu().numpy()
 

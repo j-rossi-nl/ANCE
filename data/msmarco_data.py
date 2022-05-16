@@ -272,7 +272,7 @@ def QueryPreprocessingFn(args, line, tokenizer):
     return q_id.to_bytes(8,'big') + passage_len.to_bytes(4,'big') + np.array(input_id_b,np.int32).tobytes()
 
 
-def GetProcessingFn(args, query=False):
+def poetrGetProcessingFn(args, query=False):
     def fn(vals, i):
         passage_len, passage = vals
         max_len = args.max_query_length if query else args.max_seq_length
